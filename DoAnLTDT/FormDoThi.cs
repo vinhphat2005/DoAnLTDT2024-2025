@@ -13,9 +13,12 @@ namespace DoAnLTDT
     public partial class FormDoThi : Form
     {
 
+        //Phần tạo nút frontend
         private Button currentButton;
         private Random random;
         private int tempIndex;
+
+        //Phần tạo các biến thực hiện
         private Button btncreate = new Button();
         private int dx = 0, dy = 0, dx1 = 0, dy1 = 0; // dx,dy là tọa độ trong không gian Oxy của nút 1, dx1 dy1 là tọa độ trong không gian Oxy của nút 2
         private int dinh1 = -1, dinh2 = -1;  // d1,d2 là 2 biến dùng để lưu tạm thứ tự đỉnh để xác định đúng Dinh1,Dinh2
@@ -212,6 +215,55 @@ namespace DoAnLTDT
             }
         }
         #endregion
+        #region 3.Vẽ lại đồ thị sau khi xoá cạnh
+        private void VeLaiDoThi(Class_Graph.Edge NodeG)
+        {
+            if (cbxLoaiDoThi.Text == "Đồ Thị Vô Hướng")
+            {
+                Graphics dc = pnlVeDoThi.CreateGraphics();
+                dc.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+                Pen BlackPen = new Pen(Color.Black, 2);
+                dc.DrawLine(BlackPen, NodeG.x, NodeG.y, NodeG.z, NodeG.t);
+            }
+            else
+            {
+                if (cbxLoaiDoThi.Text == "Đồ Thị Có Hướng")
+                {
+                    Graphics dc = pnlVeDoThi.CreateGraphics();
+                    dc.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+                    Pen BlackPen = new Pen(Color.Black, 2);
+                    dc.DrawLine(BlackPen, NodeG.x, NodeG.y, NodeG.z, NodeG.t);
+                    DrawArrowhead(dc, BlackPen, NodeG.x, NodeG.y, NodeG.z, NodeG.t);
+                }
+
+            }
+        }
+
+
+        #endregion
+        #region 4. Vẽ Đường Đi Kết Quả BFS hay DFS
+        private void VeDoThiDuongDi(Class_Graph.Edge NodeG)
+        {
+            if (cbxLoaiDoThi.Text == "Đồ Thị Vô Hướng")
+            {
+                Graphics dc = pnlVeDoThi.CreateGraphics();
+                dc.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+                Pen BlackPen = new Pen(Color.Red, 2);
+                dc.DrawLine(BlackPen, NodeG.x, NodeG.y, NodeG.z, NodeG.t);
+            }
+            else
+            {
+                if (cbxLoaiDoThi.Text == "Đồ Thị Có Hướng")
+                {
+                    Graphics dc = pnlVeDoThi.CreateGraphics();
+                    dc.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+                    Pen BlackPen = new Pen(Color.Red, 2);
+                    dc.DrawLine(BlackPen, NodeG.x, NodeG.y, NodeG.z, NodeG.t);
+                    DrawArrowhead(dc, BlackPen, NodeG.x, NodeG.y, NodeG.z, NodeG.t);
+                }
+            }
+        }
+        #endregion
         #region 5. Vẽ hướng đồ thị
         private void DrawArrowhead(Graphics gr, Pen pen, int x, int y, int z, int t) //vẽ hướng đồ thị có hướng
         {
@@ -262,7 +314,7 @@ namespace DoAnLTDT
             cbxDinhKetThuc.DataSource = ArrVertex;
         }
         #endregion
-        private bool check(int x, int y)
+        private bool check(int x, int y) // Dùng kiểm tra 
         {
             if (x >= 0 && y >= 0)
             {

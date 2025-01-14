@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace DoAnLTDT
 {
-    public partial class FormMenu : MaterialSkin.Controls.MaterialForm
+    public partial class FormMenu : System.Windows.Forms.Form
     {
         public FormMenu()
         {
@@ -22,9 +22,7 @@ namespace DoAnLTDT
 
         private void FormMenu_Load(object sender, EventArgs e)
         {
-            MaterialSkin.MaterialSkinManager skinManager = MaterialSkin.MaterialSkinManager.Instance;
-            skinManager.AddFormToManage(this);
-            skinManager.Theme = MaterialSkin.MaterialSkinManager.Themes.LIGHT;
+            
             
         }
 
@@ -34,6 +32,16 @@ namespace DoAnLTDT
             FormDoThi graph = new FormDoThi();
             graph.FormClosed += (s, args) => this.Show(); // Hiện lại FormMenu khi FormDoThi đóng
             graph.Show();
+        }
+
+        private void btnMenuClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnMenuMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

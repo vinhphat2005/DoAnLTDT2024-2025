@@ -287,7 +287,6 @@
             this.pnlVeDoThi.Name = "pnlVeDoThi";
             this.pnlVeDoThi.Size = new System.Drawing.Size(429, 480);
             this.pnlVeDoThi.TabIndex = 27;
-            
             // 
             // pnlDuyet
             // 

@@ -38,6 +38,8 @@
             this.panelDoThiLogo = new System.Windows.Forms.Panel();
             this.lblLogo = new System.Windows.Forms.Label();
             this.panelTitleBar = new System.Windows.Forms.Panel();
+            this.btnDoThiMinimize = new System.Windows.Forms.Button();
+            this.btnDoThiClose = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.labelLoaiDothi = new System.Windows.Forms.Label();
             this.cbxLoaiDoThi = new System.Windows.Forms.ComboBox();
@@ -207,12 +209,45 @@
             // panelTitleBar
             // 
             this.panelTitleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(136)))));
+            this.panelTitleBar.Controls.Add(this.btnDoThiMinimize);
+            this.panelTitleBar.Controls.Add(this.btnDoThiClose);
             this.panelTitleBar.Controls.Add(this.lblTitle);
             this.panelTitleBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitleBar.Location = new System.Drawing.Point(220, 0);
             this.panelTitleBar.Name = "panelTitleBar";
             this.panelTitleBar.Size = new System.Drawing.Size(920, 80);
             this.panelTitleBar.TabIndex = 1;
+            this.panelTitleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitleBar_MouseDown);
+            // 
+            // btnDoThiMinimize
+            // 
+            this.btnDoThiMinimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDoThiMinimize.FlatAppearance.BorderSize = 0;
+            this.btnDoThiMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDoThiMinimize.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDoThiMinimize.ForeColor = System.Drawing.Color.White;
+            this.btnDoThiMinimize.Location = new System.Drawing.Point(849, 3);
+            this.btnDoThiMinimize.Name = "btnDoThiMinimize";
+            this.btnDoThiMinimize.Size = new System.Drawing.Size(30, 30);
+            this.btnDoThiMinimize.TabIndex = 30;
+            this.btnDoThiMinimize.Text = "-";
+            this.btnDoThiMinimize.UseVisualStyleBackColor = true;
+            this.btnDoThiMinimize.Click += new System.EventHandler(this.btnDoThiMinimize_Click);
+            // 
+            // btnDoThiClose
+            // 
+            this.btnDoThiClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDoThiClose.FlatAppearance.BorderSize = 0;
+            this.btnDoThiClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDoThiClose.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDoThiClose.ForeColor = System.Drawing.Color.White;
+            this.btnDoThiClose.Location = new System.Drawing.Point(885, 3);
+            this.btnDoThiClose.Name = "btnDoThiClose";
+            this.btnDoThiClose.Size = new System.Drawing.Size(30, 30);
+            this.btnDoThiClose.TabIndex = 31;
+            this.btnDoThiClose.Text = "x";
+            this.btnDoThiClose.UseVisualStyleBackColor = true;
+            this.btnDoThiClose.Click += new System.EventHandler(this.btnDoThiClose_Click);
             // 
             // lblTitle
             // 
@@ -274,6 +309,7 @@
             this.cbxChucNang.Name = "cbxChucNang";
             this.cbxChucNang.Size = new System.Drawing.Size(166, 27);
             this.cbxChucNang.TabIndex = 26;
+            this.cbxChucNang.SelectedIndexChanged += new System.EventHandler(this.cbxChucNang_SelectedIndexChanged_1);
             // 
             // pnlVeDoThi
             // 
@@ -287,6 +323,7 @@
             this.pnlVeDoThi.Name = "pnlVeDoThi";
             this.pnlVeDoThi.Size = new System.Drawing.Size(429, 480);
             this.pnlVeDoThi.TabIndex = 27;
+            this.pnlVeDoThi.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pnlVeDoThi_MouseClick);
             // 
             // pnlDuyet
             // 
@@ -397,6 +434,7 @@
             this.Controls.Add(this.panelTitleBar);
             this.Controls.Add(this.panelDoThiMenu);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormDoThi";
             this.Text = "FormDoThi";
             this.Load += new System.EventHandler(this.FormDoThi_Load);
@@ -440,5 +478,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtMatran;
         private System.Windows.Forms.TextBox txtKetqua;
+        private System.Windows.Forms.Button btnDoThiMinimize;
+        private System.Windows.Forms.Button btnDoThiClose;
     }
 }

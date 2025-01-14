@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,7 +19,12 @@ namespace DoAnLTDT
             InitializeComponent();
         }
 
-      
+
+        [DllImport("user32.dll", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+
+        [DllImport("user32.dll", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
         private void FormMenu_Load(object sender, EventArgs e)
         {
@@ -30,7 +36,7 @@ namespace DoAnLTDT
         {
             this.Hide();
             FormDoThi graph = new FormDoThi();
-            graph.FormClosed += (s, args) => this.Show(); // Hiện lại FormMenu khi FormDoThi đóng
+            graph.FormClosed += (s, args) => this.Show(); 
             graph.Show();
         }
 
@@ -42,6 +48,12 @@ namespace DoAnLTDT
         private void btnMenuMinimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void panelMenu_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
     }
 }

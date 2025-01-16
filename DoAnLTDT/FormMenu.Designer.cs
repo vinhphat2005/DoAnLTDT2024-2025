@@ -31,9 +31,9 @@
             this.btnDoThi = new MaterialSkin.Controls.MaterialRaisedButton();
             this.btnMaTran = new MaterialSkin.Controls.MaterialRaisedButton();
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnMenuMinimize = new System.Windows.Forms.Button();
             this.btnMenuClose = new System.Windows.Forms.Button();
-            this.labelMenuTitle = new MaterialSkin.Controls.MaterialLabel();
             this.panelMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,19 +63,31 @@
             this.btnMaTran.TabIndex = 0;
             this.btnMaTran.Text = "Tạo Ma Trận";
             this.btnMaTran.UseVisualStyleBackColor = false;
+            this.btnMaTran.Click += new System.EventHandler(this.btnMaTran_Click);
             // 
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
+            this.panelMenu.Controls.Add(this.label1);
             this.panelMenu.Controls.Add(this.btnMenuMinimize);
             this.panelMenu.Controls.Add(this.btnMenuClose);
-            this.panelMenu.Controls.Add(this.labelMenuTitle);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(327, 54);
             this.panelMenu.TabIndex = 1;
             this.panelMenu.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelMenu_MouseDown);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("iCiel Cadena", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(57, 25);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Menu";
             // 
             // btnMenuMinimize
             // 
@@ -107,19 +119,6 @@
             this.btnMenuClose.UseVisualStyleBackColor = true;
             this.btnMenuClose.Click += new System.EventHandler(this.btnMenuClose_Click);
             // 
-            // labelMenuTitle
-            // 
-            this.labelMenuTitle.AutoSize = true;
-            this.labelMenuTitle.Depth = 0;
-            this.labelMenuTitle.Font = new System.Drawing.Font("iCiel Cadena", 15F);
-            this.labelMenuTitle.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelMenuTitle.Location = new System.Drawing.Point(12, 12);
-            this.labelMenuTitle.MouseState = MaterialSkin.MouseState.HOVER;
-            this.labelMenuTitle.Name = "labelMenuTitle";
-            this.labelMenuTitle.Size = new System.Drawing.Size(62, 28);
-            this.labelMenuTitle.TabIndex = 0;
-            this.labelMenuTitle.Text = "Menu";
-            // 
             // FormMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -145,8 +144,8 @@
         private MaterialSkin.Controls.MaterialRaisedButton btnMaTran;
         private System.Windows.Forms.Panel panelMenu;
         private System.Windows.Forms.Button btnMenuClose;
-        private MaterialSkin.Controls.MaterialLabel labelMenuTitle;
         private System.Windows.Forms.Button btnMenuMinimize;
+        private System.Windows.Forms.Label label1;
     }
 }
 

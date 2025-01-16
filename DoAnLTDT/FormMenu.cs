@@ -29,7 +29,6 @@ namespace DoAnLTDT
         private void FormMenu_Load(object sender, EventArgs e)
         {
             
-            
         }
 
         private void btnDoThi_Click(object sender, EventArgs e)
@@ -54,6 +53,14 @@ namespace DoAnLTDT
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void btnMaTran_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormMaTran graph = new FormMaTran();
+            graph.FormClosed += (s, args) => this.Show();
+            graph.Show();
         }
     }
 }

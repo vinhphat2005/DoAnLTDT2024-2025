@@ -205,6 +205,7 @@
             this.lblLogo.Size = new System.Drawing.Size(71, 20);
             this.lblLogo.TabIndex = 0;
             this.lblLogo.Text = "Chill Guy";
+            this.lblLogo.Click += new System.EventHandler(this.lblLogo_Click);
             // 
             // panelTitleBar
             // 

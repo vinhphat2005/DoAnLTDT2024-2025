@@ -45,6 +45,9 @@
     <Reference Include="MetroFramework.Fonts, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
       <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -61,11 +64,23 @@
     <Compile Include="Class_Graph\Edge.cs" />
     <Compile Include="Class_Graph\Graph.cs" />
     <Compile Include="Class_Graph\NodeGraph.cs" />
+    <Compile Include="CustomItems\CustomButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomItems\CustomComboBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="FormDoThi.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormDoThi.Designer.cs">
       <DependentUpon>FormDoThi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMaTran.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMaTran.Designer.cs">
+      <DependentUpon>FormMaTran.cs</DependentUpon>
     </Compile>
     <Compile Include="FormMenu.cs">
       <SubType>Form</SubType>
@@ -73,14 +88,26 @@
     <Compile Include="FormMenu.Designer.cs">
       <DependentUpon>FormMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormTaoMaTran.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTaoMaTran.Designer.cs">
+      <DependentUpon>FormTaoMaTran.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ThemeColor.cs" />
     <EmbeddedResource Include="FormDoThi.resx">
       <DependentUpon>FormDoThi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormMaTran.resx">
+      <DependentUpon>FormMaTran.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormMenu.resx">
       <DependentUpon>FormMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTaoMaTran.resx">
+      <DependentUpon>FormTaoMaTran.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

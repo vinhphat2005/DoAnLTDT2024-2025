@@ -19,6 +19,9 @@ namespace DoAnLTDT
         private Button currentButton;
         private Random random;
         private int tempIndex;
+        //ComboBox frontend
+
+
 
         //Phần tạo các biến thực hiện
         private Button btncreate = new Button();
@@ -920,12 +923,28 @@ namespace DoAnLTDT
             Application.Exit();
         }
 
+        private void lblLogo_Click(object sender, EventArgs e)
+        {
+            // Kiểm tra nếu FormMenu đã mở
+            Form existingForm = Application.OpenForms["FormMenu"];
+            if (existingForm != null)
+            {
+                existingForm.Show();
+            }
+            else
+            {
+                FormMenu menu = new FormMenu();
+                menu.Show();
+            }
+            this.Close(); // Đóng form hiện tại để giải phóng tài nguyên
+        }
+        //lay chu trong combobox the vao txtDuyet
         private void cbxChucNang_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             btnDuyet.Text = cbxChucNang.Text;
         }
-
-        private void panelTitleBar_MouseDown(object sender, MouseEventArgs e)
+        
+        private void panelTitleBar_MouseDown(object sender, MouseEventArgs e) //de co the di chuyen chuong trinh bang cach nhap vao title
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
